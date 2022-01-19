@@ -1,0 +1,8 @@
+target/
+/.settings/
+/.classpath
+/.project
+/.pydevproject
+*.iml
+.idea/
+*.egg-info/
