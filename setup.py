@@ -28,13 +28,13 @@ setuptools.setup(
     },
     keywords=("kafka", "health", "healthcheck", "wrapper", "monitor"),
     classifiers=[
-        "Development Status :: 1 - Beta",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Intended Audience :: System Administrators",
         "License :: OSI Approved :: Apache Software License",
         "Natural Language :: English",
         "Operating System :: Unix",
-        "Programming Language :: Python :: 3.9.7",
+        "Programming Language :: Python :: 3.9",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
 )
