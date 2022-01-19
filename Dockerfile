@@ -2,8 +2,6 @@ FROM python:3.9-alpine
 
 COPY . ./
 
-#RUN apt-get update && apt-get install -y kafkacat
-
 RUN apk add --no-cache cyrus-sasl cyrus-sasl-gssapiv2 krb5 openssl ca-certificates kcat
 RUN apk add --no-cache curl python3 bash && \
     python3 -m ensurepip && \
