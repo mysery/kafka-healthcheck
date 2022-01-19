@@ -1,0 +1,56 @@
+version: '3.6'
+
+services:
+  zookeeper:
+    image: bitnami/zookeeper:3.6.3
+    container_name: zookeeper
+    ports:
+      - '2181:2181'
+      - '2888:2888'
+      - '3888:3888'
+      - '9095:9095'
+      - '8888:8080'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+      - ZOO_SERVER_ID=${ZOO_SERVER_ID}
+      - ZOO_SERVERS=${ZOO_SERVERS}
+      - ZOO_4LW_COMMANDS_WHITELIST="srvr, mntr, stat, ruok, conf, isro"
+      - ZOO_ENABLE_PROMETHEUS_METRICS=yes
+      - ZOO_PROMETHEUS_METRICS_PORT_NUMBER=9095
+      - ZOO_RECONFIG_ENABLED=no
+      - ZOO_STANDALONE_ENABLED=no
+    volumes:
+      - ~/data/zookeeper:/bitnami/zookeeper/data
+    networks:
+      - zookeeper_network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  zookeeper-healthcheck:
+    image: image-hub.despexds.net/zookeeper-healthcheck:${version}
+    command: ["zookeeper-healthcheck"]
+    container_name: zookeeper-healthcheck
+    depends_on:
+      - zookeeper
+    restart: always
+    ports:
+      - '9290:9290'
+    networks:
+      - zookeeper_network
+    environment:
+      - HEALTHCHECK_ZOOKEEPER_HOST=zookeeper
+      - HEALTHCHECK_ZOOKEEPER_PORT=2181
+      - HEALTHCHECK_PORT=9290
+      - HEALTHCHECK_LOG_LEVEL=WARNING
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+networks:
+  zookeeper_network:
+    driver: bridge
