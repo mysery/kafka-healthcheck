@@ -6,3 +6,5 @@ target/
 *.iml
 .idea/
 *.egg-info/
+build/
+dist/
