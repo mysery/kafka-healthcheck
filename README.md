@@ -1,4 +1,4 @@
-# zookeeper-healthcheck
+# kafka-healthcheck
 
 A simple healthcheck wrapper to monitor Kafka.
 
