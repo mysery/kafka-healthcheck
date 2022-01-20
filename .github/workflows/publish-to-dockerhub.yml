@@ -19,7 +19,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/kafka_healthcheck
+            ${{ secrets.DOCKER_HUB_USERNAME }}/kafka-healthcheck
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
