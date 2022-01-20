@@ -15,7 +15,7 @@ setuptools.setup(
     name="kafka-healthcheck",
     version=meta["__version__"],
     author="Rodrigo Garcia fork of Shawn Seymour",
-    author_email="rodrigo.garcia@despgar.com, shawn@devshawn.com",
+    author_email="rodrigo.garcia@despgar.com",
     description="A simple healthcheck wrapper to monitor kafka with kafkacat.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -26,7 +26,7 @@ setuptools.setup(
     entry_points={
         "console_scripts": ["kafka-healthcheck=kafka_healthcheck.main:main"],
     },
-    keywords=("kafka", "health", "healthcheck", "wrapper", "monitor"),
+    keywords=("kafka", "health", "healthcheck", "wrapper", "monitor", "kafkacat", "kcat"),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
