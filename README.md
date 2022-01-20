@@ -29,12 +29,12 @@ The server will now be running on [localhost:9290][localhost].
 ### Docker solution
 Run `kafka-healthcheck` via `dockerhub`:
 ```bash
-docker run --network=host -p 9290:9290 \
+docker run -it --network=host -p 9290:9290 \
 -e HEALTHCHECK_PORT=9290 \
 -e HEALTHCHECK_LOG_LEVEL=DEBUG  \
 -e HEALTHCHECK_KAFKA_HOST=localhost \
 -e HEALTHCHECK_KAFKA_PORT=9092 \
-mysery/kafka-healthcheck:0.0.1
+mysery/kafka-healthcheck:0.0.1 kafka-healthcheck
 ```
 That start docker healtcheck if you have docker in localhost 
 

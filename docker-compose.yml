@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   kafka-healthcheck:
-    image: image-hub.despexds.net/kafka-healthcheck:0.0.1
+    image: mysery/kafka-healthcheck:0.0.1
     command: ["kafka-healthcheck"]
     container_name: kafka-healthcheck
     #restart: always
